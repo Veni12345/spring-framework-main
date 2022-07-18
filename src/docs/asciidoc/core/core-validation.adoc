@@ -434,7 +434,7 @@ we can still convert the human readable form back to the original date (or, even
 better, convert any date entered in a human readable form back to `Date` objects). This
 behavior can be achieved by registering custom editors of type
 `java.beans.PropertyEditor`. Registering custom editors on a `BeanWrapper` or,
-alternatively, in a specific IoC container (as mentioned in the previous chapter), gives it
+alternatively, in a specific IoC_BeanFactory container (as mentioned in the previous chapter), gives it
 the knowledge of how to convert properties to the desired type. For more about
 `PropertyEditor`, see https://docs.oracle.com/javase/8/docs/api/java/beans/package-summary.html[the javadoc of the `java.beans` package from Oracle].
 
@@ -606,7 +606,7 @@ associates a `CustomNumberEditor` with the `age` property of the `Something` cla
 [[beans-beans-conversion-customeditor-registration]]
 ==== Registering Additional Custom `PropertyEditor` Implementations
 
-When setting bean properties as string values, a Spring IoC container ultimately uses
+When setting bean properties as string values, a Spring IoC_BeanFactory container ultimately uses
 standard JavaBeans `PropertyEditor` implementations to convert these strings to the complex type of the
 property. Spring pre-registers a number of custom `PropertyEditor` implementations (for example, to
 convert a class name expressed as a string into a `Class` object). Additionally,

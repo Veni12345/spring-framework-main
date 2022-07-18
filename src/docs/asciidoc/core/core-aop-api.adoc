@@ -819,7 +819,7 @@ chain.
 [[aop-pfb]]
 == Using the `ProxyFactoryBean` to Create AOP Proxies
 
-If you use the Spring IoC container (an `ApplicationContext` or `BeanFactory`) for your
+If you use the Spring IoC_BeanFactory container (an `ApplicationContext` or `BeanFactory`) for your
 business objects (and you should be!), you want to use one of Spring's AOP
 `FactoryBean` implementations. (Remember that a factory bean introduces a layer of indirection, letting
 it create objects of a different type.)
@@ -842,9 +842,9 @@ reference `foo` do not see the `ProxyFactoryBean` instance itself but an object
 created by the implementation of the `getObject()` method in the `ProxyFactoryBean` . This
 method creates an AOP proxy that wraps a target object.
 
-One of the most important benefits of using a `ProxyFactoryBean` or another IoC-aware
+One of the most important benefits of using a `ProxyFactoryBean` or another IoC_BeanFactory-aware
 class to create AOP proxies is that advices and pointcuts can also be
-managed by IoC. This is a powerful feature, enabling certain approaches that are hard to
+managed by IoC_BeanFactory. This is a powerful feature, enabling certain approaches that are hard to
 achieve with other AOP frameworks. For example, an advice may itself reference
 application objects (besides the target, which should be available in any AOP
 framework), benefiting from all the pluggability provided by Dependency Injection.
@@ -1021,7 +1021,7 @@ follows:
 	val person = factory.getBean("person") as Person;
 ----
 
-Other beans in the same IoC context can express a strongly typed dependency on it, as
+Other beans in the same IoC_BeanFactory context can express a strongly typed dependency on it, as
 with an ordinary Java object. The following example shows how to do so:
 
 [source,xml,indent=0,subs="verbatim,quotes"]
@@ -1069,7 +1069,7 @@ anonymous inner bean:
 
 Using an anonymous inner bean has the advantage that there is only one object of type `Person`. This is useful if we want
 to prevent users of the application context from obtaining a reference to the un-advised
-object or need to avoid any ambiguity with Spring IoC autowiring. There is also,
+object or need to avoid any ambiguity with Spring IoC_BeanFactory autowiring. There is also,
 arguably, an advantage in that the `ProxyFactoryBean` definition is self-contained.
 However, there are times when being able to obtain the un-advised target from the
 factory might actually be an advantage (for example, in certain test scenarios).
@@ -1211,7 +1211,7 @@ pre-instantiate it.
 == Creating AOP Proxies Programmatically with the `ProxyFactory`
 
 It is easy to create AOP proxies programmatically with Spring. This lets you use
-Spring AOP without dependency on Spring IoC.
+Spring AOP without dependency on Spring IoC_BeanFactory.
 
 The interfaces implemented by the target object are
 automatically proxied. The following listing shows creation of a proxy for a target object, with one
@@ -1248,7 +1248,7 @@ There are also convenience methods on `ProxyFactory` (inherited from `AdvisedSup
 that let you add other advice types, such as before and throws advice.
 `AdvisedSupport` is the superclass of both `ProxyFactory` and `ProxyFactoryBean`.
 
-TIP: Integrating AOP proxy creation with the IoC framework is best practice in most
+TIP: Integrating AOP proxy creation with the IoC_BeanFactory framework is best practice in most
 applications. We recommend that you externalize configuration from Java code with AOP,
 as you should in general.
 
@@ -1642,7 +1642,7 @@ of the target to grow the pool as necessary. See the {api-spring-framework}/aop/
 about its properties. `maxSize` is the most basic and is always guaranteed to be present.
 
 In this case, `myInterceptor` is the name of an interceptor that would need to be
-defined in the same IoC context. However, you need not specify interceptors to
+defined in the same IoC_BeanFactory context. However, you need not specify interceptors to
 use pooling. If you want only pooling and no other advice, do not set the
 `interceptorNames` property at all.
 
@@ -1694,7 +1694,7 @@ used by any auto-proxy creator.
 Setting up a "`prototype`" target source is similar to setting up a pooling `TargetSource`. In this
 case, a new instance of the target is created on every method invocation. Although
 the cost of creating a new object is not high in a modern JVM, the cost of wiring up the
-new object (satisfying its IoC dependencies) may be more expensive. Thus, you should not
+new object (satisfying its IoC_BeanFactory dependencies) may be more expensive. Thus, you should not
 use this approach without very good reason.
 
 To do this, you could modify the `poolTargetSource` definition shown earlier as follows

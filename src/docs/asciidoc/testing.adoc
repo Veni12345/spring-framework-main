@@ -8,7 +8,7 @@
 
 This chapter covers Spring's support for integration testing and best practices for unit
 testing. The Spring team advocates test-driven development (TDD). The Spring team has
-found that the correct use of inversion of control (IoC) certainly does make both unit
+found that the correct use of inversion of control (IoC_BeanFactory) certainly does make both unit
 and integration testing easier (in that the presence of setter methods and appropriate
 constructors on classes makes them easier to wire together in a test without having to
 set up service locator registries and similar structures).
@@ -20,7 +20,7 @@ set up service locator registries and similar structures).
 == Introduction to Spring Testing
 
 Testing is an integral part of enterprise software development. This chapter focuses on
-the value added by the IoC principle to <<unit-testing, unit testing>> and on the benefits
+the value added by the IoC_BeanFactory principle to <<unit-testing, unit testing>> and on the benefits
 of the Spring Framework's support for <<integration-testing, integration testing>>. (A
 thorough treatment of testing in the enterprise is beyond the scope of this reference
 manual.)
@@ -44,7 +44,7 @@ without needing to access persistent data while running unit tests.
 True unit tests typically run extremely quickly, as there is no runtime infrastructure to
 set up. Emphasizing true unit tests as part of your development methodology can boost
 your productivity. You may not need this section of the testing chapter to help you write
-effective unit tests for your IoC-based applications. For certain unit testing scenarios,
+effective unit tests for your IoC_BeanFactory-based applications. For certain unit testing scenarios,
 however, the Spring Framework provides mock objects and testing support classes, which
 are described in this chapter.
 
@@ -207,7 +207,7 @@ It is important to be able to perform some integration testing without requiring
 deployment to your application server or connecting to other enterprise infrastructure.
 Doing so lets you test things such as:
 
-* The correct wiring of your Spring IoC container contexts.
+* The correct wiring of your Spring IoC_BeanFactory container contexts.
 * Data access using JDBC or an ORM tool. This can include such things as the correctness
   of SQL statements, Hibernate queries, JPA entity mappings, and so forth.
 
@@ -233,7 +233,7 @@ in various environments, including JUnit, TestNG, and others.
 
 Spring's integration testing support has the following primary goals:
 
-* To manage <<testing-ctx-management, Spring IoC container caching>> between tests.
+* To manage <<testing-ctx-management, Spring IoC_BeanFactory container caching>> between tests.
 * To provide <<testing-fixture-di, Dependency Injection of test fixture instances>>.
 * To provide <<testing-tx, transaction management>> appropriate to integration testing.
 * To supply <<testing-support-classes, Spring-specific base classes>> that assist

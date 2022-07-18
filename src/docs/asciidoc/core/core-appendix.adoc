@@ -659,7 +659,7 @@ the bean definition and sets up some caching infrastructure that uses the suppli
 Since version 2.0, Spring has featured a mechanism for adding schema-based extensions to the
 basic Spring XML format for defining and configuring beans. This section covers
 how to write your own custom XML bean definition parsers and
-integrate such parsers into the Spring IoC container.
+integrate such parsers into the Spring IoC_BeanFactory container.
 
 To facilitate authoring configuration files that use a schema-aware XML editor,
 Spring's extensible XML configuration mechanism is based on XML Schema. If you are not
@@ -696,7 +696,7 @@ through the basic steps of making a custom extension.)
 [[xsd-custom-schema]]
 === Authoring the Schema
 
-Creating an XML configuration extension for use with Spring's IoC container starts with
+Creating an XML configuration extension for use with Spring's IoC_BeanFactory container starts with
 authoring an XML Schema to describe the extension. For our example, we use the following schema
 to configure `SimpleDateFormat` objects:
 

@@ -54,6 +54,9 @@ import org.springframework.lang.Nullable;
  * @see DestructionAwareBeanPostProcessor
  * @see ConfigurableBeanFactory#addBeanPostProcessor
  * @see BeanFactoryPostProcessor
+ *
+ * 对象实例化阶段
+ * BeanFactoryPostProcessor:容器启动阶段
  */
 public interface BeanPostProcessor {
 

@@ -1,4 +1,4 @@
-package IoC;
+package IoC_BeanFactory;
 
 import lombok.Data;
 

@@ -8,9 +8,9 @@ enable the modularization of concerns (such as transaction management) that cut 
 multiple types and objects. (Such concerns are often termed "`crosscutting`" concerns
 in AOP literature.)
 
-One of the key components of Spring is the AOP framework. While the Spring IoC
+One of the key components of Spring is the AOP framework. While the Spring IoC_BeanFactory
 container does not depend on AOP (meaning you do not need to use AOP if you don't want
-to), AOP complements Spring IoC to provide a very capable middleware solution.
+to), AOP complements Spring IoC_BeanFactory to provide a very capable middleware solution.
 
 .Spring AOP with AspectJ pointcuts
 ****
@@ -130,10 +130,10 @@ to advise field access and update join points, consider a language such as Aspec
 Spring AOP's approach to AOP differs from that of most other AOP frameworks. The aim is
 not to provide the most complete AOP implementation (although Spring AOP is quite
 capable). Rather, the aim is to provide a close integration between AOP implementation and
-Spring IoC, to help solve common problems in enterprise applications.
+Spring IoC_BeanFactory, to help solve common problems in enterprise applications.
 
 Thus, for example, the Spring Framework's AOP functionality is normally used in
-conjunction with the Spring IoC container. Aspects are configured by using normal bean
+conjunction with the Spring IoC_BeanFactory container. Aspects are configured by using normal bean
 definition syntax (although this allows powerful "`auto-proxying`" capabilities). This is a
 crucial difference from other AOP implementations. You cannot do some things
 easily or efficiently with Spring AOP, such as advise very fine-grained objects (typically,
@@ -144,7 +144,7 @@ enterprise Java applications that are amenable to AOP.
 Spring AOP never strives to compete with AspectJ to provide a comprehensive AOP
 solution. We believe that both proxy-based frameworks such as Spring AOP and full-blown
 frameworks such as AspectJ are valuable and that they are complementary, rather than in
-competition. Spring seamlessly integrates Spring AOP and IoC with AspectJ, to enable
+competition. Spring seamlessly integrates Spring AOP and IoC_BeanFactory with AspectJ, to enable
 all uses of AOP within a consistent Spring-based application
 architecture. This integration does not affect the Spring AOP API or the AOP Alliance
 API. Spring AOP remains backward-compatible. See <<aop-api, the following chapter>>
@@ -3632,7 +3632,7 @@ fully qualified class names:
 
 
 [[aop-aj-configure]]
-=== Configuring AspectJ Aspects by Using Spring IoC
+=== Configuring AspectJ Aspects by Using Spring IoC_BeanFactory
 
 When you use AspectJ aspects with Spring applications, it is natural to both want and
 expect to be able to configure such aspects with Spring. The AspectJ runtime itself is

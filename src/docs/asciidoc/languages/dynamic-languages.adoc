@@ -84,7 +84,7 @@ The following example implements the `Messenger` interface in Groovy:
 ====
 To use the custom dynamic language tags to define dynamic-language-backed beans, you
 need to have the XML Schema preamble at the top of your Spring XML configuration file.
-You also need to use a Spring `ApplicationContext` implementation as your IoC
+You also need to use a Spring `ApplicationContext` implementation as your IoC_BeanFactory
 container. Using the dynamic-language-backed beans with a plain `BeanFactory`
 implementation is supported, but you have to manage the plumbing of the Spring internals
 to do so.
@@ -811,7 +811,7 @@ a <<core.adoc#beans-factory-scopes-prototype, prototype>>:
 	</beans>
 ----
 
-See <<core.adoc#beans-factory-scopes, Bean Scopes>> in <<core.adoc#beans, The IoC Container>>
+See <<core.adoc#beans-factory-scopes, Bean Scopes>> in <<core.adoc#beans, The IoC_BeanFactory Container>>
 for a full discussion of the scoping support in the Spring Framework.
 
 

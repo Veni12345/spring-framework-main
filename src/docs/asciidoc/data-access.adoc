@@ -173,7 +173,7 @@ This is primarily a service provider interface (SPI), although you can use it
 `PlatformTransactionManager` is an interface, it can be easily mocked or stubbed as
 necessary. It is not tied to a lookup strategy, such as JNDI.
 `PlatformTransactionManager` implementations are defined like any other object (or bean)
-in the Spring Framework IoC container. This benefit alone makes Spring Framework
+in the Spring Framework IoC_BeanFactory container. This benefit alone makes Spring Framework
 transactions a worthwhile abstraction, even when you work with JTA. You can test
 transactional code much more easily than if it used JTA directly.
 
@@ -2229,7 +2229,7 @@ container by means of an AspectJ aspect. To do so, first annotate your classes
 and then link (weave) your application with the
 `org.springframework.transaction.aspectj.AnnotationTransactionAspect` defined in the
 `spring-aspects.jar` file. You must also configure the aspect with a transaction
-manager. You can use the Spring Framework's IoC container to take care of
+manager. You can use the Spring Framework's IoC_BeanFactory container to take care of
 dependency-injecting the aspect. The simplest way to configure the transaction
 management aspect is to use the `<tx:annotation-driven/>` element and specify the `mode`
 attribute to `aspectj` as described in <<transaction-declarative-annotations>>. Because
@@ -3231,10 +3231,10 @@ statement, providing SQL and any necessary parameters. The same is true for the
 `RowCallbackHandler` interface extracts values from each row of a `ResultSet`.
 
 You can use `JdbcTemplate` within a DAO implementation through direct instantiation
-with a `DataSource` reference, or you can configure it in a Spring IoC container and give it to
+with a `DataSource` reference, or you can configure it in a Spring IoC_BeanFactory container and give it to
 DAOs as a bean reference.
 
-NOTE: The `DataSource` should always be configured as a bean in the Spring IoC container. In
+NOTE: The `DataSource` should always be configured as a bean in the Spring IoC_BeanFactory container. In
 the first case the bean is given to the service directly; in the second case it is given
 to the prepared template.
 
@@ -4314,7 +4314,7 @@ interface that configures a plain JDBC driver through bean properties and return
 `Connection` every time.
 
 This implementation is useful for test and stand-alone environments outside of a Jakarta EE
-container, either as a `DataSource` bean in a Spring IoC container or in conjunction
+container, either as a `DataSource` bean in a Spring IoC_BeanFactory container or in conjunction
 with a simple JNDI environment. Pool-assuming `Connection.close()` calls
 close the connection, so any `DataSource`-aware persistence code should work. However,
 using JavaBean-style connection pools (such as `commons-dbcp`) is so easy, even in a test
@@ -6704,7 +6704,7 @@ callback creates a `Publisher`. The same is true for mapping functions that
 extract a `Row` result.
 
 You can use `DatabaseClient` within a DAO implementation through direct instantiation
-with a `ConnectionFactory` reference, or you can configure it in a Spring IoC container
+with a `ConnectionFactory` reference, or you can configure it in a Spring IoC_BeanFactory container
 and give it to DAOs as a bean reference.
 
 The simplest way to create a `DatabaseClient` object is through a static factory method, as follows:
@@ -6720,7 +6720,7 @@ The simplest way to create a `DatabaseClient` object is through a static factory
 	val client = DatabaseClient.create(connectionFactory)
 ----
 
-NOTE: The `ConnectionFactory` should always be configured as a bean in the Spring IoC
+NOTE: The `ConnectionFactory` should always be configured as a bean in the Spring IoC_BeanFactory
 container.
 
 The preceding method creates a `DatabaseClient` with default settings.
@@ -7310,7 +7310,7 @@ This section covers data access when you use Object Relational Mapping (ORM).
 The Spring Framework supports integration with the Java Persistence API (JPA) and
 supports native Hibernate for resource management, data access object (DAO) implementations,
 and transaction strategies. For example, for Hibernate, there is first-class support with
-several convenient IoC features that address many typical Hibernate integration issues.
+several convenient IoC_BeanFactory features that address many typical Hibernate integration issues.
 You can configure all of the supported features for OR (object relational) mapping
 tools through Dependency Injection. They can participate in Spring's resource and
 transaction management, and they comply with Spring's generic transaction and DAO
@@ -7322,12 +7322,12 @@ data access applications. You can leverage as much of the integration support as
 wish, and you should compare this integration effort with the cost and risk of building
 a similar infrastructure in-house. You can use much of the ORM support as you would a
 library, regardless of technology, because everything is designed as a set of reusable
-JavaBeans. ORM in a Spring IoC container facilitates configuration and deployment. Thus,
+JavaBeans. ORM in a Spring IoC_BeanFactory container facilitates configuration and deployment. Thus,
 most examples in this section show configuration inside a Spring container.
 
 The benefits of using the Spring Framework to create your ORM DAOs include:
 
-* *Easier testing.* Spring's IoC approach makes it easy to swap the implementations
+* *Easier testing.* Spring's IoC_BeanFactory approach makes it easy to swap the implementations
   and configuration locations of Hibernate `SessionFactory` instances, JDBC `DataSource`
   instances, transaction managers, and mapped object implementations (if needed). This
   in turn makes it much easier to test each piece of persistence-related code in
@@ -7397,7 +7397,7 @@ managers, web view resolvers, web controllers that use the business services, an
 Typical business applications are cluttered with repetitive resource management code.
 Many projects try to invent their own solutions, sometimes sacrificing proper handling
 of failures for programming convenience. Spring advocates simple solutions for proper
-resource handling, namely IoC through templating in the case of JDBC and applying AOP
+resource handling, namely IoC_BeanFactory through templating in the case of JDBC and applying AOP
 interceptors for the ORM technologies.
 
 The infrastructure provides proper resource handling and appropriate conversion of
@@ -7614,7 +7614,7 @@ such an instance-based setup over the old-school `static` `HibernateUtil` class 
 Hibernate's CaveatEmptor sample application. (In general, do not keep any resources in
 `static` variables unless absolutely necessary.)
 
-The preceding DAO example follows the dependency injection pattern. It fits nicely into a Spring IoC
+The preceding DAO example follows the dependency injection pattern. It fits nicely into a Spring IoC_BeanFactory
 container, as it would if coded against Spring's `HibernateTemplate`.
 You can also set up such a DAO in plain Java (for example, in unit tests). To do so,
 instantiate it and call `setSessionFactory(..)` with the desired factory reference. As a

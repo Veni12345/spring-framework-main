@@ -1,4 +1,4 @@
-package IoC;
+package IoC_BeanFactory;
 
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;

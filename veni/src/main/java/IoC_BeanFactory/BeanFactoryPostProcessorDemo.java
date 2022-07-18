@@ -1,7 +1,6 @@
-package IoC;
+package IoC_BeanFactory;
 
 import org.springframework.beans.factory.config.*;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 /**
  * @author: Veni
