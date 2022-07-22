@@ -35,6 +35,7 @@ import org.springframework.aop.TargetSource;
  * @since 13.03.2003
  * @see org.springframework.aop.framework.AdvisedSupport
  */
+//承载生成代理对象所需要的必要信息
 public interface Advised extends TargetClassAware {
 
 	/**

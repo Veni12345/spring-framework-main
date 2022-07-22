@@ -29,6 +29,7 @@ import org.springframework.lang.Nullable;
  * @author Juergen Hoeller
  * @see DefaultAopProxyFactory
  */
+//实例化过程采用抽象工厂设计模式 即AopProxyFactory
 public interface AopProxy {
 
 	/**

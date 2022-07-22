@@ -56,6 +56,7 @@ public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
 	public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException {
 		if (!NativeDetector.inNativeImage() &&
 				(config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config))) {
+			//创建CglibAopProxy实例
 			Class<?> targetClass = config.getTargetClass();
 			if (targetClass == null) {
 				throw new AopConfigException("TargetSource cannot determine target class: " +
@@ -67,6 +68,7 @@ public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
 			return new ObjenesisCglibAopProxy(config);
 		}
 		else {
+			//创建JdkDynamicAopProxy实例
 			return new JdkDynamicAopProxy(config);
 		}
 	}

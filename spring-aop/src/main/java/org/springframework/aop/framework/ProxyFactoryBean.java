@@ -88,6 +88,8 @@ import org.springframework.util.ObjectUtils;
  * @see org.springframework.aop.Advisor
  * @see Advised
  */
+//Proxy + FactoryBean
+	//用来生产Proxy的FactoryBean
 @SuppressWarnings("serial")
 public class ProxyFactoryBean extends ProxyCreatorSupport
 		implements FactoryBean<Object>, BeanClassLoaderAware, BeanFactoryAware {
@@ -138,6 +140,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
 	 * @see #setInterfaces
 	 * @see AbstractSingletonProxyFactoryBean#setProxyInterfaces
 	 */
+	//differ from ProxyFactory  1
 	public void setProxyInterfaces(Class<?>[] proxyInterfaces) throws ClassNotFoundException {
 		setInterfaces(proxyInterfaces);
 	}
@@ -159,6 +162,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
 	 * @see org.aopalliance.aop.Advice
 	 * @see org.springframework.aop.target.SingletonTargetSource
 	 */
+	//differ from ProxyFactory  2
 	public void setInterceptorNames(String... interceptorNames) {
 		this.interceptorNames = interceptorNames;
 	}
@@ -194,6 +198,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport
 	 * from prototype bean definitions. This allows for fine control of
 	 * independence/uniqueness in the object graph.
 	 */
+	//differ from ProxyFactory  3
 	public void setSingleton(boolean singleton) {
 		this.singleton = singleton;
 	}

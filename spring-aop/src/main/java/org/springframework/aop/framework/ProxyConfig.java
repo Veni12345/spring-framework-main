@@ -28,21 +28,26 @@ import org.springframework.util.Assert;
  * @author Juergen Hoeller
  * @see AdvisedSupport
  */
+//记载生成代理对象的控制信息
+	//设置与判断 五种状态
 public class ProxyConfig implements Serializable {
 
-	/** use serialVersionUID from Spring 1.2 for interoperability. */
+	/**
+	 * use serialVersionUID from Spring 1.2 for interoperability.
+	 */
 	private static final long serialVersionUID = -8409359707199703185L;
 
 
-	private boolean proxyTargetClass = false;
+	private boolean proxyTargetClass = false;  //属性为true使用CGLIB进行代理
 
-	private boolean optimize = false;
+	private boolean optimize = false;	//属性为true使用CGLIB进行代理；
+				// 是否采取进一步优化措施，如代理对象生成之后，为其增删advice，代理对象也可以忽略这种变动
 
-	boolean opaque = false;
+	boolean opaque = false;  //控制生成的代理对象是否可强制转为Advised
 
-	boolean exposeProxy = false;
+	boolean exposeProxy = false; //将当前代理对象绑定到Threadlocal
 
-	private boolean frozen = false;
+	private boolean frozen = false; //一但针对代理对象的各项信息配置完成，则不允许修改
 
 
 	/**
@@ -55,6 +60,7 @@ public class ProxyConfig implements Serializable {
 	 * <p>Note: Depending on the configuration of the concrete proxy factory,
 	 * the proxy-target-class behavior will also be applied if no interfaces
 	 * have been specified (and no interface autodetection is activated).
+	 *
 	 * @see org.springframework.aop.TargetSource#getTargetClass()
 	 */
 	public void setProxyTargetClass(boolean proxyTargetClass) {
@@ -147,6 +153,7 @@ public class ProxyConfig implements Serializable {
 
 	/**
 	 * Copy configuration from the other config object.
+	 *
 	 * @param other object to copy configuration from
 	 */
 	public void copyFrom(ProxyConfig other) {

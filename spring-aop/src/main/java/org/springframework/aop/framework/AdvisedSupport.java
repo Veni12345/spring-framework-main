@@ -58,6 +58,7 @@ import org.springframework.util.CollectionUtils;
  * @author Juergen Hoeller
  * @see org.springframework.aop.framework.AopProxy
  */
+//生成一个代理对象所需要的信息载体
 public class AdvisedSupport extends ProxyConfig implements Advised {
 
 	/** use serialVersionUID from Spring 2.0 for interoperability. */

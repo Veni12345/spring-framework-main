@@ -35,6 +35,7 @@ import org.springframework.lang.Nullable;
  * @see #setPointcut
  * @see #setAdvice
  */
+//最通用的PointcutAdvisor实现
 @SuppressWarnings("serial")
 public class DefaultPointcutAdvisor extends AbstractGenericPointcutAdvisor implements Serializable {
 
