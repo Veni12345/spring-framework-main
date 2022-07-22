@@ -1,6 +1,7 @@
 package IoC_BeanFactory;
 
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.AbstractBeanFactory;
@@ -16,6 +17,10 @@ public class BeanFactoryDemo {
 		AbstractBeanFactory beanFactory=new DefaultListableBeanFactory();
 
 		BeanPostProcessor beanPostProcessor=new AutowiredAnnotationBeanPostProcessor();
+
+		BeanFactory beanFactory1=new DefaultListableBeanFactory();
+		Object bean = beanFactory1.getBean("");
+
 
 	}
 }
