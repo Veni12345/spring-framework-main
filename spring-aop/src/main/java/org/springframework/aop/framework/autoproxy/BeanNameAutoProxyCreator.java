@@ -43,6 +43,7 @@ import org.springframework.util.PatternMatchUtils;
  * @see #setInterceptorNames
  * @see AbstractAutoProxyCreator
  */
+//加快AOP织入过程，常用类1
 @SuppressWarnings("serial")
 public class BeanNameAutoProxyCreator extends AbstractAutoProxyCreator {
 

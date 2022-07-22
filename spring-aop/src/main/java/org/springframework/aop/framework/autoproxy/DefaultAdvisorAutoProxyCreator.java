@@ -35,6 +35,7 @@ import org.springframework.lang.Nullable;
  * @author Rod Johnson
  * @author Rob Harrop
  */
+//加快AOP织入过程，常用类2
 @SuppressWarnings("serial")
 public class DefaultAdvisorAutoProxyCreator extends AbstractAdvisorAutoProxyCreator implements BeanNameAware {
 
