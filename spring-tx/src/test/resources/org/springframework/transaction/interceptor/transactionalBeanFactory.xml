@@ -67,7 +67,7 @@
 
 	<bean id="proxyFactory2Lazy" parent="baseProxyFactory">
 		<property name="target">
-			<bean class="org.springframework.aop.target.LazyInitTargetSource">
+			<bean class="org.springframework.aop.target_veni.LazyInitTargetSource">
 				<property name="targetBeanName"><idref bean="target"/></property>
 			</bean>
 		</property>
@@ -108,7 +108,7 @@
 	<!--
 		The HotSwappableTargetSource is a Type 3 component.
 	-->
-	<bean id="swapper" class="org.springframework.aop.target.HotSwappableTargetSource">
+	<bean id="swapper" class="org.springframework.aop.target_veni.HotSwappableTargetSource">
 		<constructor-arg><ref bean="target"/></constructor-arg>
 	</bean>
 

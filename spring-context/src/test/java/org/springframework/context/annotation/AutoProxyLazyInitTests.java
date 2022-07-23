@@ -22,7 +22,7 @@ import org.junit.jupiter.api.Test;
 
 import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
 import org.springframework.aop.framework.autoproxy.target.LazyInitTargetSourceCreator;
-import org.springframework.aop.target.AbstractBeanFactoryBasedTargetSource;
+import org.springframework.aop.target_veni.AbstractBeanFactoryBasedTargetSource;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.ApplicationContextEvent;

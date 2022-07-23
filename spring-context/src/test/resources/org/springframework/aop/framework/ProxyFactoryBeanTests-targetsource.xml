@@ -24,7 +24,7 @@
 		Note that there's normally no reason to create objects of this type
 		in a BeanFactory. If for some strange reason you want to, use Type 3 IoC_BeanFactory.
 	-->
-	<bean id="targetSource" class="org.springframework.aop.target.SingletonTargetSource">
+	<bean id="targetSource" class="org.springframework.aop.target_veni.SingletonTargetSource">
 		<constructor-arg><ref bean="target"/></constructor-arg>
 	</bean>
 

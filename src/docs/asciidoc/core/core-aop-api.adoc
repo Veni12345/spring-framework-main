@@ -1550,7 +1550,7 @@ instance when required.
 [[aop-ts-swap]]
 === Hot-swappable Target Sources
 
-The `org.springframework.aop.target.HotSwappableTargetSource` exists to let the target
+The `org.springframework.aop.target_veni.HotSwappableTargetSource` exists to let the target
 of an AOP proxy be switched while letting callers keep their references to it.
 
 Changing the target source's target takes effect immediately. The
@@ -1577,7 +1577,7 @@ The following example shows the required XML definitions:
 ----
 	<bean id="initialTarget" class="mycompany.OldTarget"/>
 
-	<bean id="swapper" class="org.springframework.aop.target.HotSwappableTargetSource">
+	<bean id="swapper" class="org.springframework.aop.target_veni.HotSwappableTargetSource">
 		<constructor-arg ref="initialTarget"/>
 	</bean>
 
@@ -1610,7 +1610,7 @@ non-invasive way.
 Spring provides support for Commons Pool 2.2, which provides a
 fairly efficient pooling implementation. You need the `commons-pool` Jar on your
 application's classpath to use this feature. You can also subclass
-`org.springframework.aop.target.AbstractPoolingTargetSource` to support any other
+`org.springframework.aop.target_veni.AbstractPoolingTargetSource` to support any other
 pooling API.
 
 NOTE: Commons Pool 1.5+ is also supported but is deprecated as of Spring Framework 4.2.
@@ -1624,7 +1624,7 @@ The following listing shows an example configuration:
 		... properties omitted
 	</bean>
 
-	<bean id="poolTargetSource" class="org.springframework.aop.target.CommonsPool2TargetSource">
+	<bean id="poolTargetSource" class="org.springframework.aop.target_veni.CommonsPool2TargetSource">
 		<property name="targetBeanName" value="businessObjectTarget"/>
 		<property name="maxSize" value="25"/>
 	</bean>
@@ -1647,7 +1647,7 @@ use pooling. If you want only pooling and no other advice, do not set the
 `interceptorNames` property at all.
 
 You can configure Spring to be able to cast any pooled object to the
-`org.springframework.aop.target.PoolingConfig` interface, which exposes information
+`org.springframework.aop.target_veni.PoolingConfig` interface, which exposes information
 about the configuration and current size of the pool through an introduction. You
 need to define an advisor similar to the following:
 
@@ -1702,7 +1702,7 @@ To do this, you could modify the `poolTargetSource` definition shown earlier as 
 
 [source,xml,indent=0,subs="verbatim,quotes"]
 ----
-	<bean id="prototypeTargetSource" class="org.springframework.aop.target.PrototypeTargetSource">
+	<bean id="prototypeTargetSource" class="org.springframework.aop.target_veni.PrototypeTargetSource">
 		<property name="targetBeanName" ref="businessObjectTarget"/>
 	</bean>
 ----
@@ -1724,7 +1724,7 @@ of target source, as the following example shows:
 
 [source,xml,indent=0,subs="verbatim,quotes"]
 ----
-	<bean id="threadlocalTargetSource" class="org.springframework.aop.target.ThreadLocalTargetSource">
+	<bean id="threadlocalTargetSource" class="org.springframework.aop.target_veni.ThreadLocalTargetSource">
 		<property name="targetBeanName" value="businessObjectTarget"/>
 	</bean>
 ----

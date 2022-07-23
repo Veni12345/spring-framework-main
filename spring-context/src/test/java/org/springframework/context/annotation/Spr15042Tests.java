@@ -19,7 +19,7 @@ package org.springframework.context.annotation;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.aop.framework.ProxyFactoryBean;
-import org.springframework.aop.target.CommonsPool2TargetSource;
+import org.springframework.aop.target_veni.CommonsPool2TargetSource;
 
 /**
  * @author Juergen Hoeller

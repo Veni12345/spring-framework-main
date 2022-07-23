@@ -33,6 +33,7 @@ import org.springframework.lang.Nullable;
  * @author Rod Johnson
  * @author Juergen Hoeller
  */
+//在目标对象外层加一个壳，就像是目标对象的容器
 public interface TargetSource extends TargetClassAware {
 
 	/**

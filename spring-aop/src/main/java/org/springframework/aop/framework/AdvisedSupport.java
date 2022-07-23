@@ -35,8 +35,8 @@ import org.springframework.aop.IntroductionInfo;
 import org.springframework.aop.TargetSource;
 import org.springframework.aop.support.DefaultIntroductionAdvisor;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
-import org.springframework.aop.target.EmptyTargetSource;
-import org.springframework.aop.target.SingletonTargetSource;
+import org.springframework.aop.target_veni.EmptyTargetSource;
+import org.springframework.aop.target_veni.SingletonTargetSource;
 import org.springframework.lang.Nullable;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
@@ -118,7 +118,7 @@ public class AdvisedSupport extends ProxyConfig implements Advised {
 	 * Set the given object as target.
 	 * Will create a SingletonTargetSource for the object.
 	 * @see #setTargetSource
-	 * @see org.springframework.aop.target.SingletonTargetSource
+	 * @see org.springframework.aop.target_veni.SingletonTargetSource
 	 */
 	public void setTarget(Object target) {
 		setTargetSource(new SingletonTargetSource(target));
@@ -137,7 +137,7 @@ public class AdvisedSupport extends ProxyConfig implements Advised {
 	/**
 	 * Set a target class to be proxied, indicating that the proxy
 	 * should be castable to the given class.
-	 * <p>Internally, an {@link org.springframework.aop.target.EmptyTargetSource}
+	 * <p>Internally, an {@link org.springframework.aop.target_veni.EmptyTargetSource}
 	 * for the given target class will be used. The kind of proxy needed
 	 * will be determined on actual creation of the proxy.
 	 * <p>This is a replacement for setting a "targetSource" or "target",

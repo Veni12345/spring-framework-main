@@ -8,7 +8,7 @@
 
 <beans>
 
-	<bean id="eveTargetSource" class="org.springframework.aop.target.SingletonTargetSource">
+	<bean id="eveTargetSource" class="org.springframework.aop.target_veni.SingletonTargetSource">
 		<constructor-arg>
 			<bean class="org.springframework.beans.testfixture.beans.TestBean">
 				<property name="name"><value>Eve</value></property>
@@ -20,7 +20,7 @@
 		<property name="name"><value>Adam</value></property>
 	</bean>
 
-	<bean id="adamTargetSource" class="org.springframework.aop.target.SingletonTargetSource">
+	<bean id="adamTargetSource" class="org.springframework.aop.target_veni.SingletonTargetSource">
 		<constructor-arg>
 			<ref bean="adam"/>
 		</constructor-arg>

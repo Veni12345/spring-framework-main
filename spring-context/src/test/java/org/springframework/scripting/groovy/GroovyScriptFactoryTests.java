@@ -25,7 +25,7 @@ import groovy.lang.GroovyObject;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.aop.support.AopUtils;
-import org.springframework.aop.target.dynamic.Refreshable;
+import org.springframework.aop.target_veni.dynamic.Refreshable;
 import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.config.BeanDefinition;

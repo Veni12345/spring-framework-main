@@ -8,7 +8,7 @@
 	<bean id="boPrototype" autowire="constructor" class="org.springframework.beans.factory.xml.DummyBoImpl"
 			scope="prototype"/>
 
-	<bean id="prototypeTargetSource" class="org.springframework.aop.target.PrototypeTargetSource">
+	<bean id="prototypeTargetSource" class="org.springframework.aop.target_veni.PrototypeTargetSource">
 		<property name="targetBeanName"><value>boPrototype</value></property>
 	</bean>
 

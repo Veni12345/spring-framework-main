@@ -16,7 +16,7 @@
 
 package org.springframework.scripting.support;
 
-import org.springframework.aop.target.dynamic.BeanFactoryRefreshableTargetSource;
+import org.springframework.aop.target_veni.dynamic.BeanFactoryRefreshableTargetSource;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.scripting.ScriptFactory;
 import org.springframework.scripting.ScriptSource;

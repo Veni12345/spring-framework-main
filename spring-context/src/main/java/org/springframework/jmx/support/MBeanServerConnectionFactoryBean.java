@@ -29,7 +29,7 @@ import javax.management.remote.JMXServiceURL;
 
 import org.springframework.aop.TargetSource;
 import org.springframework.aop.framework.ProxyFactory;
-import org.springframework.aop.target.AbstractLazyCreationTargetSource;
+import org.springframework.aop.target_veni.AbstractLazyCreationTargetSource;
 import org.springframework.beans.factory.BeanClassLoaderAware;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.FactoryBean;
