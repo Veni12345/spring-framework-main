@@ -29,6 +29,8 @@ package org.springframework.aop;
  * @since 04.04.2003
  * @see IntroductionInterceptor
  */
+//Advisor-2 IntroductionAdvisor
+	//只能使用类级别的拦截，Introduction类型的Advice
 public interface IntroductionAdvisor extends Advisor, IntroductionInfo {
 
 	/**
