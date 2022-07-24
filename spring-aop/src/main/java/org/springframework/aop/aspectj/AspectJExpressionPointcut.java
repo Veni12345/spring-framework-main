@@ -82,7 +82,10 @@ import org.springframework.util.StringUtils;
  * @since 2.0
  */
 @SuppressWarnings("serial")
-//
+//在AspectJProxyFactory或者AnnotationAwareAspectJAutoProxyCreator通过反射获取
+// 了Aspect中@Pointcut定义的ASpectJ形式的Pointcut定义之后，
+// 在Spring AOP框架内部都会构造对应的 AspectJExpressionPointcut对象实例，
+// AspectJExpressionPointcut内部持有通过反射获取的pointcut表达式。
 public class AspectJExpressionPointcut extends AbstractExpressionPointcut
 		implements ClassFilter, IntroductionAwareMethodMatcher, BeanFactoryAware {
 
@@ -219,14 +222,19 @@ public class AspectJExpressionPointcut extends AbstractExpressionPointcut
 	 * Build the underlying AspectJ pointcut expression.
 	 */
 	private PointcutExpression buildPointcutExpression(@Nullable ClassLoader classLoader) {
+		//委托AspectJ类库中的PointcutParser对Pointcut表达式进行解析
 		PointcutParser parser = initializePointcutParser(classLoader);
 		PointcutParameter[] pointcutParameters = new PointcutParameter[this.pointcutParameterNames.length];
 		for (int i = 0; i < pointcutParameters.length; i++) {
 			pointcutParameters[i] = parser.createPointcutParameter(
 					this.pointcutParameterNames[i], this.pointcutParameterTypes[i]);
 		}
-		return parser.parsePointcutExpression(replaceBooleanOperators(resolveExpression()),
+//		return parser.parsePointcutExpression(replaceBooleanOperators(resolveExpression()),
+//				this.pointcutDeclarationScope, pointcutParameters);
+		//PointcutParser解析返回PointcutExpression对象
+		PointcutExpression pointcutExpression1 = parser.parsePointcutExpression(replaceBooleanOperators(resolveExpression()),
 				this.pointcutDeclarationScope, pointcutParameters);
+		return pointcutExpression1;
 	}
 
 	private String resolveExpression() {
