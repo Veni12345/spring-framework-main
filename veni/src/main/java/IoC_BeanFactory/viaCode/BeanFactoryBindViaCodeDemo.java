@@ -1,5 +1,8 @@
-package IoC_BeanFactory;
+package IoC_BeanFactory.viaCode;
 
+import IoC_BeanFactory.Book;
+import IoC_BeanFactory.Library;
+import IoC_BeanFactory.Management;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.BeanFactory;
