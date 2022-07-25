@@ -676,7 +676,7 @@
 	<xsd:element name="lookup-method">
 		<xsd:annotation>
 			<xsd:documentation><![CDATA[
-	A lookup method causes the IoC container to override the given method
+	A lookup method causes the IoC.IoC_Demo container to override the given method
 	and return the bean with the name given in the bean attribute. This is
 	a form of Method Injection. It is particularly useful as an alternative
 	to implementing the BeanFactoryAware interface, in order to be able to
@@ -719,7 +719,7 @@
 		<xsd:annotation>
 			<xsd:documentation><![CDATA[
 	Similar to the lookup method mechanism, the replaced-method element
-	is used to control IoC container method overriding: Method Injection.
+	is used to control IoC.IoC_Demo container method overriding: Method Injection.
 	This mechanism allows the overriding of a method with arbitrary code.
 			]]></xsd:documentation>
 		</xsd:annotation>
@@ -733,7 +733,7 @@
 				<xsd:annotation>
 					<xsd:documentation><![CDATA[
 	The name of the method whose implementation must be replaced by the
-	IoC container. If this method is not overloaded, there is no need
+	IoC.IoC_Demo container. If this method is not overloaded, there is no need
 	to use arg-type subelements. If this method is overloaded, arg-type
 	subelements must be used for all override definitions for the method.
 					]]></xsd:documentation>
