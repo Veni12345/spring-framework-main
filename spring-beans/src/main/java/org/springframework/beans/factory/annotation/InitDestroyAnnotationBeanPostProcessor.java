@@ -230,6 +230,7 @@ public class InitDestroyAnnotationBeanPostProcessor implements DestructionAwareB
 	}
 
 
+	//查看缓存里面有没有 InjectionMetadata 对象
 	private LifecycleMetadata findLifecycleMetadata(Class<?> clazz) {
 		if (this.lifecycleMetadataCache == null) {
 			// Happens after deserialization, during destruction...
@@ -264,6 +265,7 @@ public class InitDestroyAnnotationBeanPostProcessor implements DestructionAwareB
 			final List<LifecycleElement> currDestroyMethods = new ArrayList<>();
 
 			ReflectionUtils.doWithLocalMethods(targetClass, method -> {
+				//循环遍历类中的所有的方法，判断方法上是否有 @PostConstruct注解
 				if (this.initAnnotationType != null && method.isAnnotationPresent(this.initAnnotationType)) {
 					LifecycleElement element = new LifecycleElement(method);
 					currInitMethods.add(element);
@@ -271,6 +273,7 @@ public class InitDestroyAnnotationBeanPostProcessor implements DestructionAwareB
 						logger.trace("Found init method on class [" + clazz.getName() + "]: " + method);
 					}
 				}
+				//@PreDestroy
 				if (this.destroyAnnotationType != null && method.isAnnotationPresent(this.destroyAnnotationType)) {
 					currDestroyMethods.add(new LifecycleElement(method));
 					if (logger.isTraceEnabled()) {

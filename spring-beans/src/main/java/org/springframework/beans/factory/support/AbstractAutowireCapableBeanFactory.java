@@ -318,6 +318,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
 	@Override
 	@SuppressWarnings("unchecked")
+	/////////////////////////// =========== createBean
 	public <T> T createBean(Class<T> beanClass) throws BeansException {
 		// Use prototype bean definition, to avoid registering bean as dependent bean.
 		RootBeanDefinition bd = new RootBeanDefinition(beanClass);
@@ -562,6 +563,15 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		if (mbd.isSingleton()) {
 			instanceWrapper = this.factoryBeanInstanceCache.remove(beanName);
 		}
+		//可以看到，这里出现了一个新的接口BeanWrapper，其实就是一个 Bean 的包装器，包括对
+		// Bean 的属性、方法，数据等，同时它还具备属性转换的能力，因为它还得是一个类型转换器，
+		// 它有唯一的一个实现类是BeanWrapperImpl，
+		// 具体的可以看看这篇文章：https://blog.csdn.net/qq_41907991/article/details/105214244
+		// Spring中的BeanWrapper及类型转换。
+		//
+		//那么他和 BeanDefinition有什么关系呢？
+		//
+		//BeanDefinition(原料)->BeanFactory(工厂)->BeanWrapper(产品)
 		if (instanceWrapper == null) {
 			instanceWrapper = createBeanInstance(beanName, mbd, args);
 		}
@@ -600,7 +610,9 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		// Initialize the bean instance.
 		Object exposedObject = bean;
 		try {
+			//依赖注入
 			populateBean(beanName, mbd, instanceWrapper);
+			//
 			exposedObject = initializeBean(beanName, exposedObject, mbd);
 		}
 		catch (Throwable ex) {
@@ -1076,6 +1088,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 * @param beanName the name of the bean
 	 * @see MergedBeanDefinitionPostProcessor#postProcessMergedBeanDefinition
 	 */
+	// 对 @Autowired 或者 @Resource注解的收集
 	protected void applyMergedBeanDefinitionPostProcessors(RootBeanDefinition mbd, Class<?> beanType, String beanName) {
 		for (MergedBeanDefinitionPostProcessor processor : getBeanPostProcessorCache().mergedDefinition) {
 			processor.postProcessMergedBeanDefinition(mbd, beanType, beanName);
@@ -1737,10 +1750,12 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 	 * @see #applyBeanPostProcessorsAfterInitialization
 	 */
 	protected Object initializeBean(String beanName, Object bean, @Nullable RootBeanDefinition mbd) {
+		//激活Aware方法
 		invokeAwareMethods(beanName, bean);
 
 		Object wrappedBean = bean;
 		if (mbd == null || !mbd.isSynthetic()) {
+			//bean初始化前，激活所有的BeanPostProcessors 的 postProcessorsBeforeInitialization方法
 			wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
 		}
 

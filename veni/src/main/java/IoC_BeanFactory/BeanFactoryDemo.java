@@ -7,6 +7,8 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.AbstractBeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
+import static IoC_BeanFactory.viaCode.BeanFactoryBindViaCodeDemo.bindViaCode;
+
 /**
  * @author: Veni
  * @date: 2022/07/18 七月 星期一 13:31
@@ -18,8 +20,11 @@ public class BeanFactoryDemo {
 
 		BeanPostProcessor beanPostProcessor=new AutowiredAnnotationBeanPostProcessor();
 
-		BeanFactory beanFactory1=new DefaultListableBeanFactory();
-		Object bean = beanFactory1.getBean("");
+
+		DefaultListableBeanFactory beanRegistry = new DefaultListableBeanFactory();
+		BeanFactory container = bindViaCode(beanRegistry);
+		Library library = (Library) container.getBean("library");
+		System.out.println(library);
 
 
 	}

@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--	通过构造方法注入-->
 	<bean id="library" class="IoC_BeanFactory.Library">
 		<constructor-arg index="0">
 			<ref bean="book"/>
@@ -12,4 +13,14 @@
 	</bean>
 	<bean id="book" class="IoC_BeanFactory.Book"></bean>
 	<bean id="management" class="IoC_BeanFactory.Management"></bean>
+<!--	通过setter方法注入-->
+<!--	<bean id="library" class="IoC_BeanFactory.Library">-->
+<!--		<property name="book">-->
+<!--			<ref bean="book"></ref>-->
+<!--		</property>-->
+<!--		<property name="management">-->
+<!--			<ref bean="management"></ref>-->
+<!--		</property>-->
+<!--	</bean>-->
+
 </beans>

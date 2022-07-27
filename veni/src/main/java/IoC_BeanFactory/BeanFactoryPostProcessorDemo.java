@@ -6,6 +6,7 @@ import org.springframework.beans.factory.config.*;
  * @author: Veni
  * @date: 2022/07/18 七月 星期一 9:45
  * @description: BeanFactoryPostProcessor容器扩展机制
+ * 前置处理器
  */
 public class BeanFactoryPostProcessorDemo {
 
