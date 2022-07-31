@@ -43,6 +43,7 @@ import org.springframework.lang.Nullable;
  * @see org.springframework.transaction.interceptor.TransactionInterceptor
  * @see org.springframework.transaction.ReactiveTransactionManager
  */
+//事务抽象架构的核心接口
 public interface PlatformTransactionManager extends TransactionManager {
 
 	/**

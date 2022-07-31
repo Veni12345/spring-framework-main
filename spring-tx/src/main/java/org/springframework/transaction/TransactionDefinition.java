@@ -41,6 +41,11 @@ import org.springframework.lang.Nullable;
  * @see org.springframework.transaction.support.DefaultTransactionDefinition
  * @see org.springframework.transaction.interceptor.TransactionAttribute
  */
+//定义事务相关属性
+	//隔离级别
+	//传播行为 propagation behavior
+	//事务的超时时间
+	//是否为只读事务
 public interface TransactionDefinition {
 
 	/**
@@ -49,6 +54,7 @@ public interface TransactionDefinition {
 	 * <p>This is typically the default setting of a transaction definition,
 	 * and typically defines a transaction synchronization scope.
 	 */
+	//如果当前存在一个事务，则加入当前事务；如果不存在任何事务则创建一个新的事务
 	int PROPAGATION_REQUIRED = 0;
 
 	/**
@@ -70,6 +76,7 @@ public interface TransactionDefinition {
 	 * @see org.springframework.transaction.support.AbstractPlatformTransactionManager#setTransactionSynchronization
 	 * @see org.springframework.transaction.support.AbstractPlatformTransactionManager#SYNCHRONIZATION_ON_ACTUAL_TRANSACTION
 	 */
+	//如果当前存在一个事务，则加入当前事务；如果当前不存在事务，则直接执行
 	int PROPAGATION_SUPPORTS = 1;
 
 	/**
@@ -137,7 +144,7 @@ public interface TransactionDefinition {
 	 * All other levels correspond to the JDBC isolation levels.
 	 * @see java.sql.Connection
 	 */
-	int ISOLATION_DEFAULT = -1;
+	int ISOLATION_DEFAULT = -1;     //数据库默认的隔离级别，默认 Read Committed
 
 	/**
 	 * Indicates that dirty reads, non-repeatable reads and phantom reads

@@ -62,6 +62,7 @@ import org.springframework.util.Assert;
  * @see org.springframework.transaction.PlatformTransactionManager
  */
 @SuppressWarnings("serial")
+//对PlatformTransactionManager 相关的事务界定操作以及相关的异常处理进行了模板化封装
 public class TransactionTemplate extends DefaultTransactionDefinition
 		implements TransactionOperations, InitializingBean {
 
