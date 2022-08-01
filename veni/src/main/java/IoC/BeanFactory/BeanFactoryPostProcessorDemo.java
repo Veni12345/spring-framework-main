@@ -1,4 +1,4 @@
-package IoC_BeanFactory;
+package IoC.BeanFactory;
 
 import org.springframework.beans.factory.config.*;
 

@@ -688,9 +688,11 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	 */
 	protected void prepareBeanFactory(ConfigurableListableBeanFactory beanFactory) {
 		// Tell the internal bean factory to use the context's class loader etc.
-		beanFactory.setBeanClassLoader(getClassLoader());
+		ClassLoader classLoader = getClassLoader();
+		beanFactory.setBeanClassLoader(classLoader);
 		if (!shouldIgnoreSpel) {
-			beanFactory.setBeanExpressionResolver(new StandardBeanExpressionResolver(beanFactory.getBeanClassLoader()));
+			StandardBeanExpressionResolver standardBeanExpressionResolver = new StandardBeanExpressionResolver(beanFactory.getBeanClassLoader());
+			beanFactory.setBeanExpressionResolver(standardBeanExpressionResolver);
 		}
 		beanFactory.addPropertyEditorRegistrar(new ResourceEditorRegistrar(this, getEnvironment()));
 

@@ -1,13 +1,13 @@
-package IoC_BeanFactory;
+package IoC.BeanFactory;
 
 
+import IoC.BeanFactory.viaCode.BeanFactoryBindViaCodeDemo;
+import IoC.Library;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.beans.factory.support.AbstractBeanFactory;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-
-import static IoC_BeanFactory.viaCode.BeanFactoryBindViaCodeDemo.bindViaCode;
 
 /**
  * @author: Veni
@@ -22,7 +22,7 @@ public class BeanFactoryDemo {
 
 
 		DefaultListableBeanFactory beanRegistry = new DefaultListableBeanFactory();
-		BeanFactory container = bindViaCode(beanRegistry);
+		BeanFactory container = BeanFactoryBindViaCodeDemo.bindViaCode(beanRegistry);
 		Library library = (Library) container.getBean("library");
 		System.out.println(library);
 

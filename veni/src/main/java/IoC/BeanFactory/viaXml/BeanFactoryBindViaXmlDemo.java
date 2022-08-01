@@ -1,8 +1,8 @@
-package IoC_BeanFactory.viaXml;
+package IoC.BeanFactory.viaXml;
 
-import IoC_BeanFactory.Book;
-import IoC_BeanFactory.Library;
-import IoC_BeanFactory.Management;
+import IoC.Book;
+import IoC.Library;
+import IoC.Management;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;

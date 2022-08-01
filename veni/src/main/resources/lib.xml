@@ -3,7 +3,7 @@
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 <!--	通过构造方法注入-->
-	<bean id="library" class="IoC_BeanFactory.Library">
+	<bean id="library" class="IoC.Library">
 		<constructor-arg index="0">
 			<ref bean="book"/>
 		</constructor-arg>
@@ -11,10 +11,10 @@
 			<ref bean="management"/>
 		</constructor-arg>
 	</bean>
-	<bean id="book" class="IoC_BeanFactory.Book"></bean>
-	<bean id="management" class="IoC_BeanFactory.Management"></bean>
+	<bean id="book" class="IoC.Book"></bean>
+	<bean id="management" class="IoC.Management"></bean>
 <!--	通过setter方法注入-->
-<!--	<bean id="library" class="IoC_BeanFactory.Library">-->
+<!--	<bean id="library" class="IoC.Library">-->
 <!--		<property name="book">-->
 <!--			<ref bean="book"></ref>-->
 <!--		</property>-->

@@ -1,12 +1,12 @@
-package IoC_ApplicationContext;
+package IoC.ApplicationContext;
 
 
+import IoC.Library;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.CommonAnnotationBeanPostProcessor;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.core.io.Resource;
 import org.springframework.web.context.support.XmlWebApplicationContext;
 
 /**
@@ -16,11 +16,12 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
  */
 public class ApplicationContextDemo {
 	public static void main(String[] args) {
-		ApplicationContext applicationContext1=new XmlWebApplicationContext();
-		ApplicationContext applicationContext2=new FileSystemXmlApplicationContext();
-		ApplicationContext applicationContext3=new ClassPathXmlApplicationContext();
+//		ApplicationContext applicationContext1=new XmlWebApplicationContext();
+//		ApplicationContext applicationContext2=new FileSystemXmlApplicationContext();
+		ApplicationContext applicationContext3=new ClassPathXmlApplicationContext("lib.xml");
 
-		applicationContext3.getBean("");
+		Library library = (Library) applicationContext3.getBean("library");
+		System.out.println(library);
 
 		BeanPostProcessor commonAnnotationBeanPostProcessor = new CommonAnnotationBeanPostProcessor();
 
