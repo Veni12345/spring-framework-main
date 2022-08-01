@@ -43,3 +43,8 @@ dependencies {
 	testFixturesImplementation("com.google.code.findbugs:jsr305")
 	testFixturesImplementation("org.assertj:assertj-core")
 }
+
+//dependencies {
+////            compile // https://mvnrepository.com/artifact/org.springframework/spring-expression
+//	dependency group: 'org.springframework', name: 'spring-expression', version: '5.3.10'
+//}

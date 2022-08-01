@@ -240,7 +240,17 @@ configure(allprojects) { project ->
             dependency "org.glassfish:jakarta.el:4.0.2"
             dependency "org.glassfish.tyrus:tyrus-container-servlet:2.0.1"
             dependency "org.eclipse.persistence:org.eclipse.persistence.jpa:3.0.2"
+
+//            // https://mvnrepository.com/artifact/org.springframework/spring-expression
+//            implementation 'org.springframework:spring-expression:5.3.10'
+            dependency 'org.springframework:spring-expression:4.0.5.RELEASE'
+
         }
+        dependencies {
+//            compile // https://mvnrepository.com/artifact/org.springframework/spring-expression
+            dependency group: 'org.springframework', name: 'spring-expression', version: '4.0.5.RELEASE'
+        }
+
         generatedPomCustomization {
             enabled = false
         }
