@@ -102,6 +102,7 @@ import org.springframework.util.ClassUtils;
  * @author Sam Brannen
  * @since 3.0
  */
+//beanFactory 后置处理器，用来完成 bean 的扫描与注入工作
 public class ConfigurationClassPostProcessor implements BeanDefinitionRegistryPostProcessor,
 		BeanFactoryInitializationAotProcessor, PriorityOrdered, ResourceLoaderAware, ApplicationStartupAware,
 		BeanClassLoaderAware, EnvironmentAware {

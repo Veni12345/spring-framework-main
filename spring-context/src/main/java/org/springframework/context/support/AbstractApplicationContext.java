@@ -550,6 +550,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 		return this.applicationListeners;
 	}
 
+	/* https://blog.csdn.net/a745233700/article/details/113761271 */
 	@Override
 	public void refresh() throws BeansException, IllegalStateException {
 		synchronized (this.startupShutdownMonitor) {
@@ -559,39 +560,50 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			prepareRefresh();
 
 			// Tell the subclass to refresh the internal bean factory.
+			//获取 beanFactory，即前面创建的【DefaultListableBeanFactory】
 			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
 			// Prepare the bean factory for use in this context.
+			//预处理 beanFactory，向容器中添加一些组件
 			prepareBeanFactory(beanFactory);
 
 			try {
 				// Allows post-processing of the bean factory in context subclasses.
+				//子类通过重写这个方法可以在 BeanFactory 创建并与准备完成以后做进一步的设置
 				postProcessBeanFactory(beanFactory);
 
 				StartupStep beanPostProcess = this.applicationStartup.start("spring.context.beans.post-process");
 				// Invoke factory processors registered as beans in the context.
+				//执行 BeanFactoryPostProcessor 方法，beanFactory 后置处理器
 				invokeBeanFactoryPostProcessors(beanFactory);
 
 				// Register bean processors that intercept bean creation.
+				//注册 BeanPostProcessors，bean 后置处理器
 				registerBeanPostProcessors(beanFactory);
 				beanPostProcess.end();
 
 				// Initialize message source for this context.
+				//初始化 MessageSource 组件（做国际化功能；消息绑定，消息解析）
 				initMessageSource();
 
 				// Initialize event multicaster for this context.
+				//初始化事件派发器，在注册监听器时会用到
 				initApplicationEventMulticaster();
 
 				// Initialize other special beans in specific context subclasses.
+				//留给子容器（子类），子类重写这个方法，在容器刷新的时候可以自定义逻辑，web 场景下会使用
 				onRefresh();
 
 				// Check for listener beans and register them.
+				//注册监听器，派发之前步骤产生的一些事件（可能没有）
 				registerListeners();
 
 				// Instantiate all remaining (non-lazy-init) singletons.
+				//初始化所有的非单实例 bean
 				finishBeanFactoryInitialization(beanFactory);
 
 				// Last step: publish corresponding event.
+				//发布容器刷新完成事件
 				finishRefresh();
 			}
 
