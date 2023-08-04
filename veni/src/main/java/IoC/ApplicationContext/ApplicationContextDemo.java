@@ -22,15 +22,15 @@ public class ApplicationContextDemo {
 //		ApplicationContext applicationContext2=new FileSystemXmlApplicationContext();
 
 		//1. 通过XML文件 装载Bean配置
-//		ApplicationContext applicationContext3=new ClassPathXmlApplicationContext("lib.xml");
+		ApplicationContext applicationContext3=new ClassPathXmlApplicationContext("lib.xml");
 
-//		Library library = (Library) applicationContext3.getBean("library");
-//		System.out.println(library);
+		Library library = (Library) applicationContext3.getBean("library");
+		System.out.println(library);
 
 		//2. 通过一个带@Configuration的POJO装载Bean配置
-		ApplicationContext applicationContext4 = new AnnotationConfigApplicationContext(Beans.class);
-		Library library = applicationContext4.getBean("library", Library.class);
-		System.out.println(library.toString());
+//		ApplicationContext applicationContext4 = new AnnotationConfigApplicationContext(Beans.class);
+//		Library library = applicationContext4.getBean("library", Library.class);
+//		System.out.println(library.toString());
 
 		BeanPostProcessor commonAnnotationBeanPostProcessor = new CommonAnnotationBeanPostProcessor();
 
