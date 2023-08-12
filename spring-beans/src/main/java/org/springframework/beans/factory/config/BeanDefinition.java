@@ -88,6 +88,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	/**
 	 * Set the name of the parent definition of this bean definition, if any.
 	 */
+	//继承父 Bean 的配置信息而已
 	void setParentName(@Nullable String parentName);
 
 	/**
@@ -152,6 +153,7 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 * Set the names of the beans that this bean depends on being initialized.
 	 * The bean factory will guarantee that these beans get initialized first.
 	 */
+	//确保该 Bean 依赖的所有的 Bean 被加载
 	void setDependsOn(@Nullable String... dependsOn);
 
 	/**
@@ -167,6 +169,8 @@ public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 	 * if the specified bean is not marked as an autowire candidate. As a consequence,
 	 * autowiring by name will nevertheless inject a bean if the name matches.
 	 */
+	//设置该 Bean 是否可以注入到其他 Bean 中，只对根据类型注入有效，
+	//   // 如果根据名称注入，即使这边设置了 false，也是可以的
 	void setAutowireCandidate(boolean autowireCandidate);
 
 	/**

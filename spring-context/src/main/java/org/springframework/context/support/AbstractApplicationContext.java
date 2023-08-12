@@ -553,10 +553,12 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	/* https://blog.csdn.net/a745233700/article/details/113761271 */
 	@Override
 	public void refresh() throws BeansException, IllegalStateException {
+		//需要销毁原来的容器，重新执行一次初始化
 		synchronized (this.startupShutdownMonitor) {
 			StartupStep contextRefresh = this.applicationStartup.start("spring.context.refresh");
 
 			// Prepare this context for refreshing.
+			//准备工作，记录下容器的启动时间、标记“已启动”状态、处理配置文件中的占位符
 			prepareRefresh();
 
 			// Tell the subclass to refresh the internal bean factory.
@@ -635,6 +637,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 	/**
 	 * Prepare this context for refreshing, setting its startup date and
 	 * active flag as well as performing any initialization of property sources.
+	 * 准备工作，记录下容器的启动时间、标记“已启动”状态、处理配置文件中的占位符
 	 */
 	protected void prepareRefresh() {
 		// Switch to active.

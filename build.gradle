@@ -1,3 +1,15 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/spring-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/spring' }
+        maven { url 'https://maven.aliyun.com/repository/google' }
+    }
+}
+
 plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE' apply false
     id 'io.spring.nohttp' version '0.0.10'
@@ -12,6 +24,8 @@ plugins {
     id "com.github.johnrengelman.shadow" version '7.0.0' apply false
     id 'de.undercouch.download' version '4.1.2'
     id "me.champeau.jmh" version "0.6.6" apply false
+
+
 }
 
 ext {
@@ -261,11 +275,16 @@ configure(allprojects) { project ->
 //            maven { url "http://maven.aliyun.com/nexus/content/groups/public" }
 //            maven { url "http://maven.aliyun.com/nexus/content/repositories/central" }
 
-
-            mavenCentral()
-//			maven { url "http://repos.taikangcloud.com/artifactory/maven-central"}
+//            mavenCentral()
+            maven { url 'https://maven.aliyun.com/nexus/content/groups/public' }
             maven { url "https://repo.spring.io/libs-spring-framework-build" }
             maven { url "https://repo.spring.io/milestone" }
+            maven { url 'https://plugins.gradle.org/m2/' }
+            maven { url 'https://maven.aliyun.com/nexus/content/repositories/google' }
+            maven { url 'https://maven.aliyun.com/nexus/content/repositories/jcenter' }
+
+//			maven { url "http://repos.taikangcloud.com/artifactory/maven-central"}
+
         }
     }
     configurations.all {
